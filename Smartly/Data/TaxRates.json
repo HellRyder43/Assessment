@@ -1,0 +1,27 @@
+[
+  {
+    "LowerLimit": 0,
+    "UpperLimit": 14000,
+    "TaxRate": 0.105
+  },
+  {
+    "LowerLimit": 14001,
+    "UpperLimit": 48000,
+    "TaxRate": 0.175
+  },
+  {
+    "LowerLimit": 48001,
+    "UpperLimit": 70000,
+    "TaxRate": 0.3
+  },
+  {
+    "LowerLimit": 70001,
+    "UpperLimit": 180000,
+    "TaxRate": 0.33
+  },
+  {
+    "LowerLimit": 180001,
+    "UpperLimit": 10000000,
+    "TaxRate": 0.39
+  }
+]
