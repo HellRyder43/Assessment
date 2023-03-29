@@ -5,22 +5,22 @@
     "TaxRate": 0.105
   },
   {
-    "LowerLimit": 14001,
+    "LowerLimit": 14000,
     "UpperLimit": 48000,
     "TaxRate": 0.175
   },
   {
-    "LowerLimit": 48001,
+    "LowerLimit": 48000,
     "UpperLimit": 70000,
     "TaxRate": 0.3
   },
   {
-    "LowerLimit": 70001,
+    "LowerLimit": 70000,
     "UpperLimit": 180000,
     "TaxRate": 0.33
   },
   {
-    "LowerLimit": 180001,
+    "LowerLimit": 180000,
     "UpperLimit": 10000000,
     "TaxRate": 0.39
   }
