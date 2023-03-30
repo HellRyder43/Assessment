@@ -71,7 +71,10 @@
     <Compile Include="Models\TaxInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\NZTaxCalculator.cs" />
     <Compile Include="Services\CsvGenerator.cs" />
+    <Compile Include="Services\ITaxCalculator.cs" />
+    <Compile Include="Services\MYTaxCalculator.cs" />
     <Compile Include="Services\PaySlipProcessor.cs" />
     <Compile Include="Services\TaxInfoLoader.cs" />
     <Compile Include="Validators\EmployeeValidator.cs" />

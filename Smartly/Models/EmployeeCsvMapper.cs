@@ -15,7 +15,7 @@ namespace Smartly.Models
             Map(m => m.LastName).Name("last name");
             Map(m => m.AnnualSalary).Name("annual salary").Convert(args =>
             {
-                var annualSalaryStr = args.Row.GetField("super rate (%)").Trim().TrimEnd('%');
+                var annualSalaryStr = args.Row.GetField("annual salary").Trim();
                 return int.TryParse(annualSalaryStr, out int annualSalary) ? annualSalary : -1;
             });
             Map(m => m.SuperRate).Name("super rate (%)").Convert(args =>

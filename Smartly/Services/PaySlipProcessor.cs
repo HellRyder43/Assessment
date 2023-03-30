@@ -9,11 +9,11 @@ namespace Smartly.Services
 {
     public class PaySlipProcessor
     {
-        private readonly List<TaxInfo> _taxInfo;
+        private readonly ITaxCalculator _taxCalculator;
 
-        public PaySlipProcessor(List<TaxInfo> taxinfo)
+        public PaySlipProcessor(ITaxCalculator taxCalculator)
         {
-            _taxInfo = taxinfo;
+            _taxCalculator = taxCalculator;
         }
 
         public decimal CalculateGrossIncome(int annualSalary)
@@ -21,25 +21,14 @@ namespace Smartly.Services
             return Math.Round(annualSalary / 12m, 2);
         }
 
-        public decimal CalculateIncomeTax(int annualSalary)
-        {
-            decimal tax = 0;
-
-            foreach (var rate in _taxInfo)
-            {
-                int taxableIncome = Math.Min(annualSalary, rate.UpperLimit) - rate.LowerLimit;
-                if (taxableIncome > 0)
-                {
-                    tax += taxableIncome * (decimal)rate.TaxRate;
-                }
-            }
-
-            return Math.Round(tax / 12m, 2);
-        }
-
         public decimal CalculateNetIncome(decimal grossIncome, decimal incomeTax)
         {
             return Math.Round(grossIncome - incomeTax, 2);
+        }
+
+        public decimal CalculateIncomeTax(int annualSalary)
+        {
+            return _taxCalculator.CalculateIncomeTax(annualSalary);
         }
 
         public decimal CalculateSuper(decimal grossIncome, double superRate)

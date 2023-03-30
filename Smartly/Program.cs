@@ -36,8 +36,11 @@ namespace Smartly
                 return;
             }
 
+            // Initialize TaxCalculator with the tax rates
+            var taxCalculator = new NZTaxCalculator(taxRates);
+
             // Initialize PaySlipCalculator with the tax rates
-            var paySlipCalculator = new PaySlipProcessor(taxRates);
+            var paySlipCalculator = new PaySlipProcessor(taxCalculator);
 
             // Initialize EmployeeValidator
             var employeeValidator = new EmployeeValidator();
