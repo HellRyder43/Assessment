@@ -23,7 +23,7 @@ namespace Smartly.Services
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Error loading tax rates from file: {0}", fileName);
+                Logger.Error($"Error loading tax rates from file: {0}. {ex}", fileName);
                 throw;
             }
         }

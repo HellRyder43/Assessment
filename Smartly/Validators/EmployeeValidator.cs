@@ -11,32 +11,32 @@ namespace Smartly.Validator
     {
         public bool IsValid(Employee employee, out string errorMessage)
         {
+            var errorMessages = new StringBuilder();
+
             if (string.IsNullOrEmpty(employee.FirstName) || string.IsNullOrEmpty(employee.LastName))
             {
-                errorMessage = "First name and last name cannot be empty.";
-                return false;
+                errorMessages.AppendLine("First name and last name cannot be empty.");
             }
 
             if (employee.AnnualSalary < 0)
             {
-                errorMessage = "Annual salary cannot be negative.";
-                return false;
+                errorMessages.AppendLine("Annual salary cannot be empty or negative.");
             }
 
             if (employee.SuperRate < 0 || employee.SuperRate > 50)
             {
-                errorMessage = "Super rate must be between 0% and 50% inclusive.";
-                return false;
+                errorMessages.AppendLine("Super rate must be between 0% and 50% inclusive.");
             }
 
             if (string.IsNullOrEmpty(employee.PayPeriod))
             {
-                errorMessage = "Pay period cannot be empty.";
-                return false;
+                errorMessages.AppendLine("Pay period cannot be empty.");
             }
 
-            errorMessage = null;
-            return true;
+            errorMessage = errorMessages.ToString();
+
+            // If there are no error messages, the employee is considered valid
+            return string.IsNullOrEmpty(errorMessage);
         }
     }
 }

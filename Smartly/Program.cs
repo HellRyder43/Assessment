@@ -32,7 +32,7 @@ namespace Smartly
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "Error loading tax rates.");
+                Logger.Error($"Error loading tax rates. {ex}");
                 return;
             }
 
@@ -46,7 +46,7 @@ namespace Smartly
             var csvProcessor = new CsvGenerator();
             csvProcessor.Process("Data/input.csv", "Data/output.csv", paySlipCalculator, employeeValidator);
 
-            Console.WriteLine("\nFinished processing the monthly payslip");
+            Console.WriteLine("Finished processing the monthly payslip");
             Console.WriteLine("\nPlease find the result in Data\\output.csv");
             Console.WriteLine("\nYou may close this window");
             Logger.Info("Application finished.");

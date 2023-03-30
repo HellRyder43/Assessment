@@ -44,7 +44,7 @@ namespace Smartly.Services
 
         public decimal CalculateSuper(decimal grossIncome, double superRate)
         {
-            return Math.Round(grossIncome * (decimal)(superRate / 100), 2);
+            return Math.Round(grossIncome * (decimal)(superRate), 2);
         }
     }
 }

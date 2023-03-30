@@ -38,6 +38,7 @@ namespace Smartly.Services
                         if (!validator.IsValid(employee, out string errorMessage))
                         {
                             Console.WriteLine($"Invalid data for employee {employee.FirstName} {employee.LastName}: {errorMessage}");
+                            Logger.Error($"An error occurred while processing data for employee {employee.FirstName} {employee.LastName}: {errorMessage}");
                             continue;
                         }
 
@@ -58,7 +59,7 @@ namespace Smartly.Services
             }
             catch (Exception ex)
             {
-                Logger.Error(ex, "An error occurred while processing the CSV files.");
+                Logger.Error($"An error occurred while processing the CSV files. {ex}");
             }
         }
     }

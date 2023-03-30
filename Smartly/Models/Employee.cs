@@ -22,6 +22,6 @@ namespace Smartly.Models
         public string GrossIncome { get; set; }
         public string IncomeTax { get; set; }
         public string NetIncome { get; set; }
-        public string SuperRate { get; set; }
+        public string Super { get; set; }
     }
 }
