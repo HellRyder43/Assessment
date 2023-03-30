@@ -48,7 +48,7 @@ namespace Smartly.Services
                         decimal superAmount = calculator.CalculateSuper(grossIncome, employee.SuperRate);
 
                         csvWriter.WriteField($"{employee.FirstName} {employee.LastName}");
-                        csvWriter.WriteField(employee.PayPeriod);
+                        csvWriter.WriteField(GetPayPeriodDates(employee.PayPeriod));
                         csvWriter.WriteField(grossIncome);
                         csvWriter.WriteField(incomeTax);
                         csvWriter.WriteField(netIncome);
@@ -61,6 +61,13 @@ namespace Smartly.Services
             {
                 Logger.Error($"An error occurred while processing the CSV files. {ex}");
             }
+        }
+
+        private string GetPayPeriodDates(string inputMonth)
+        {
+            DateTime.TryParseExact(inputMonth, "MMMM", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime month);
+            int daysInMonth = DateTime.DaysInMonth(month.Year, month.Month);
+            return $"{month.ToString("01 MMMM")}-{daysInMonth.ToString()} {month.ToString("MMMM")}";
         }
     }
 }
